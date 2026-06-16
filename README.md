@@ -1,6 +1,6 @@
 # GitHub PR Review Bot
 
-A Node.js + Express webhook server that listens for GitHub pull request events, sends the diff to Google Gemini for AI review, and posts inline review comments back to the PR.
+A Node.js + Express webhook server that listens for GitHub pull request events, sends the diff to Groq for AI review, and posts inline review comments back to the PR.
 
 ## Project Structure
 
@@ -15,8 +15,8 @@ Copy `.env.example` to `.env` and fill in the values:
 
 - `GITHUB_WEBHOOK_SECRET` — webhook secret used to verify GitHub payloads
 - `GITHUB_TOKEN` — GitHub token with repo access and pull request write permissions
-- `GEMINI_API_KEY` — Google Gemini API key
-- `GEMINI_MODEL` — Gemini model name (default: `gemini-1.5-pro`)
+- `GROQ_API_KEY` — Groq API key
+- `GROQ_MODEL` — Groq model name (default: `llama-3.3-70b-versatile`)
 - `MONGODB_URI` — optional MongoDB connection string for logging reviews
 - `PORT` — server port (default: `3000`)
 
@@ -70,7 +70,7 @@ https://<your-ngrok-domain>.ngrok.io/webhook
 1. Listens for `pull_request` events with action `opened` or `synchronize`.
 2. Verifies the webhook signature.
 3. Fetches changed file diffs from the PR.
-4. Sends the diff to Gemini for AI review.
+4. Sends the diff to Groq for AI review.
 5. Posts an inline PR review comment using Octokit.
 
 ## Notes
