@@ -1,0 +1,17 @@
+{
+  "name": "github-bot-pr-review",
+  "version": "0.1.0",
+  "description": "GitHub PR review bot using Gemini AI and Octokit.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "@octokit/rest": "^21.0.0",
+    "axios": "^1.5.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.4",
+    "mongodb": "^5.7.0"
+  }
+}
